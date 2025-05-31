@@ -175,7 +175,6 @@ const StepperForm = () => {
     const submittedFormData = {
       ...formData,
       formId,
-      shareableUrl: `http://yourdomain.com/form/${formId}`,
     };
 
     localStorage.setItem(
@@ -250,7 +249,7 @@ const StepperForm = () => {
           {formData.fields &&
             formData.fields.map((field, index) => (
               <div key={index} className="mb-6">
-                <label className="text-lg font-semibold text-gray-700 dark:text-gray-200 mb-1">
+                <label className="text-lg font-semibold text-white-700 dark:text-gray-200 mb-1">
                   {field.label}
                 </label>
                 <input
@@ -269,7 +268,10 @@ const StepperForm = () => {
                       JSON.stringify(updatedFormData)
                     );
                   }}
-                  className="mt-1 border-2 block w-60 rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 dark:bg-gray-800 dark:text-white"
+                  className="mt-1 border-2 block w-60 rounded-md 
+  border-gray-300 text-black bg-white 
+  dark:border-gray-600 dark:text-white dark:bg-gray-800 
+  shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
                 />
                 <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
                   {field.helpText}
@@ -289,26 +291,26 @@ const StepperForm = () => {
                 value={newField}
                 onChange={(e) => setNewField(e.target.value)}
                 placeholder="Field Name"
-                className="block w-full border p-2 rounded dark:bg-gray-700"
+                className="block w-full border p-2 rounded bg-white text-black placeholder-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white text-bold dark:placeholder-gray-400 "
               />
               <input
                 type="text"
                 value={helpText}
                 onChange={(e) => setHelpText(e.target.value)}
                 placeholder="Help Text"
-                className="block w-full border p-2 rounded dark:bg-gray-700"
+                className="block w-full border p-2 rounded bg-white text-black placeholder-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
               />
               <input
                 type="text"
                 value={errorMessage}
                 onChange={(e) => setErrorMessage(e.target.value)}
                 placeholder="Error Message"
-                className="block w-full border p-2 rounded dark:bg-gray-700"
+                className="block w-full border p-2 rounded bg-white text-black placeholder-gray-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:placeholder-gray-400"
               />
               <button
                 type="button"
                 onClick={handleAddField}
-                className="bg-blue-500 text-white p-2 rounded"
+                className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded transition duration-200"
               >
                 + Add Field
               </button>
@@ -349,7 +351,7 @@ const StepperForm = () => {
               {JSON.stringify(submittedData, null, 2)}
             </pre>
             <p>Shareable Form ID: {submittedData.formId}</p>
-            <p>
+            {/* <p>
               Access the form at:{" "}
               <a
                 href={submittedData.shareableUrl}
@@ -358,7 +360,7 @@ const StepperForm = () => {
               >
                 {submittedData.shareableUrl}
               </a>
-            </p>
+            </p> */}
           </div>
         )}
       </div>
